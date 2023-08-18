@@ -1,4 +1,8 @@
 # OpenShift v4 OC commands 
+Here is primary source of the OC cli documentation.
+
+[RedHat OC CLI](https://docs.openshift.com/container-platform/4.12/cli_reference/index.html)
+
 ## Check all API resources on the OpenShift Cluster
 Every resource is object and all object created through APIs
 
@@ -34,4 +38,16 @@ You can use get on any resource you got from oc api-resources command.
 ```oc get pv```
 ```oc get pvc```
 
+# Describe on any resource
+```oc describe <resource name>```
 
+# Edit the resource manifest
+```oc edit <resource name>```
+
+# Remote login to pod
+```oc rsh <pod name> ```
+
+# Cluster Version
+```oc get clusterversion -o jsonpath='{.items[].spec.clusterID}{"\n"}'```
+
+# 
