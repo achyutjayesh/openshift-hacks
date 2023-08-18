@@ -50,4 +50,12 @@ You can use get on any resource you got from oc api-resources command.
 # Cluster Version
 ```oc get clusterversion -o jsonpath='{.items[].spec.clusterID}{"\n"}'```
 
-# 
+# Analyze Resources on the Cluster
+## Display resource statistics & (CPU/memory) usage
+```oc adm top nodes```
+```oc adm top pods```
+```oc adm top images```
+```oc adm top imagestreams```
+
+
+
