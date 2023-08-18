@@ -1,6 +1,23 @@
-# Check all API resources on the OpenShift Cluster
+# OpenShift v4 OC commands 
+## Check all API resources on the OpenShift Cluster
 Every resource is object and all object created through APIs
 
 ```oc api-resources```
 
 ```oc api-versions```
+
+# Get on any resource
+You can use get on any resource you got from oc api-resources command.
+
+```oc get pods```
+```oc get node -o wide```
+```oc get node -o wide```
+```oc get pods -o wide```
+
+### get pods with node details
+```oc get po -A -o=custom-columns=NAME:.metadata.name,NODE:.spec.nodeName```
+```oc get pods -l "<Label>" --all-namespaces -o yaml | yq '.items[] | (.metadata.namespace + "," + .spec.hostname + "," + .spec.nodeName)' | sort | uniq -c```
+
+### find the pod and node on current namespace
+```oc get po  -o wide | grep -v NODE | awk '{print $1 " - " $7}' ```
+
