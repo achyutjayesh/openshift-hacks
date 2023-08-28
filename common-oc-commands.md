@@ -114,6 +114,15 @@ You can use get on any resource you got from oc api-resources command.
 ```oc get secret <Name of the secret> -o jsonpath='{.data.ca\.crt}' | base64 -d > ca.crt```
 
 
+# SCC (SecurityContextConstraints)
+
+## Add the service account to the privileged SCC			
+```oc adm policy add-scc-to-user privileged system:serviceaccount:<name of the project>:<name of the service account>```
+
+## Enable Container Images that Require Root
+```oc adm policy add-scc-to-user anyuid system:serviceaccount:<name of the project>:<name of the service account>```
+
+```oc adm policy remove-scc-from-user anyuid system:serviceaccount:<name of the project>:<name of the service account>```
 
 
 
