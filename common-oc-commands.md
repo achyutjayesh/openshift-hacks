@@ -111,7 +111,7 @@ You can use get on any resource you got from oc api-resources command.
 ```oc extract secret/openshift-gitops-cluster -n openshift-gitops --to=-```
 
 ## Get Secret
-```oc get secret <Name of the secret> -o jsonpath='{.data.ca\.crt}' | base64 -d > ca.crt
+```oc get secret <Name of the secret> -o jsonpath='{.data.ca\.crt}' | base64 -d > ca.crt```
 
 
 
