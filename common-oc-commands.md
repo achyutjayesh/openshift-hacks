@@ -3,6 +3,11 @@ Here is primary source of the OC cli documentation.
 
 [RedHat OC CLI](https://docs.openshift.com/container-platform/4.12/cli_reference/index.html)
 
+## Explain any resource of the OpenShift like Man page
+```oc explain pod```
+
+```oc explain <Any OCP Resource Name>```
+
 ## Login to OCP Cluster
 ```oc login --username=<user name> --server=<url of the cluster>:6443 --insecure-skip-tls-verify=true```
 
@@ -50,6 +55,9 @@ You can use get on any resource you got from oc api-resources command.
 ```oc get pv```
 ```oc get pvc```
 
+### Get Oject backup locally 
+```oc get pvc <name of the resource> -o yaml > ~/xyz.yaml```
+
 # Describe on any resource
 ```oc describe <resource name>```
 
@@ -82,7 +90,10 @@ You can use get on any resource you got from oc api-resources command.
 
 ```oc adm top nodes```
 
+# Work with Secret
 
+## Extract Secret
+```oc extract secret/openshift-gitops-cluster -n openshift-gitops --to=-```
 
 
 
