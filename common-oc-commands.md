@@ -3,12 +3,24 @@ Here is primary source of the OC cli documentation.
 
 [RedHat OC CLI](https://docs.openshift.com/container-platform/4.12/cli_reference/index.html)
 
+## Login to OCP Cluster
+```oc login --username=<user name> --server=<url of the cluster>:6443 --insecure-skip-tls-verify=true```
+
+```oc login --server https://<url>:6443 -u <user name>```
+
 ## Check all API resources on the OpenShift Cluster
 Every resource is object and all object created through APIs
 
 ```oc api-resources```
 
 ```oc api-versions```
+
+## Project and Status
+```oc create ns <project name>```
+
+```oc project```
+
+```oc status```
 
 # Get on any resource
 You can use get on any resource you got from oc api-resources command.
@@ -44,8 +56,10 @@ You can use get on any resource you got from oc api-resources command.
 # Edit the resource manifest
 ```oc edit <resource name>```
 
-# Remote login to pod
+# Remote login to pod and execute commands
 ```oc rsh <pod name> ```
+
+```oc rsh <Name of the pod> <curl localhost:8080 **any other commands**> | jq | grep <some text> -A 2```
 
 # Cluster Version
 ```oc get clusterversion -o jsonpath='{.items[].spec.clusterID}{"\n"}'```
@@ -53,9 +67,26 @@ You can use get on any resource you got from oc api-resources command.
 # Analyze Resources on the Cluster
 ## Display resource statistics & (CPU/memory) usage
 ```oc adm top nodes```
+
 ```oc adm top pods```
+
 ```oc adm top images```
+
 ```oc adm top imagestreams```
+
+## Logs transfer from OCP POD to host toolbox
+```oc rsync <nameof the pod>:<path of the file/folder> .```
+
+# Memory check
+```oc rsh <Name of the pod> df -h```
+
+```oc adm top nodes```
+
+
+
+
+
+
 
 
 
