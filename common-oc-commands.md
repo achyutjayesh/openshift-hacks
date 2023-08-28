@@ -27,6 +27,21 @@ Every resource is object and all object created through APIs
 
 ```oc status```
 
+# Create or Modify/Delete Resources
+```oc create ns <name of the namespace/project>```
+
+```oc create -f <Path of the single Yaml resource or directory> -n <Name Space>```
+
+```oc replace -f <Path of the single Yaml resource or directory> -n <name space>```
+
+```oc apply -f <Path of the single Yaml resource or directory> -n <name space>```
+
+## Wait for the cluster to be deployed
+```oc wait <OCP Resource> --for=condition=Ready --timeout=300s -n <name space>```
+
+## Delete resource
+```oc delete <name of the api resource> <resource>```
+
 # Get on any resource
 You can use get on any resource you got from oc api-resources command.
 
@@ -95,6 +110,8 @@ You can use get on any resource you got from oc api-resources command.
 ## Extract Secret
 ```oc extract secret/openshift-gitops-cluster -n openshift-gitops --to=-```
 
+## Get Secret
+```oc get secret <Name of the secret> -o jsonpath='{.data.ca\.crt}' | base64 -d > ca.crt
 
 
 
